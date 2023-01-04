@@ -5,14 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aperin <aperin@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/21 14:38:11 by aperin            #+#    #+#              #
-#    Updated: 2023/01/04 13:27:28 by aperin           ###   ########.fr        #
+#    Created: 2023/01/04 11:35:14 by aperin            #+#    #+#              #
+#    Updated: 2023/01/04 13:29:11 by aperin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= megaphone
+NAME		= phonebook
 
-SRCS		= megaphone.cpp
+SRCS	= PhoneBook.cpp \
+			Contact.cpp \
+			main.cpp
 
 OBJDIR		= objs
 

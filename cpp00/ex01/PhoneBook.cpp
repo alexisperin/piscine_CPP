@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 11:38:57 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/04 16:40:11 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/05 09:21:39 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,45 +28,34 @@ PhoneBook::~PhoneBook()
 
 void	PhoneBook::add()
 {
-	std::string	str;
-
 	std::cout << "First name: ";
-	std::getline(std::cin, str);
-	this->_contacts[this->_index % 8].set_first_name(str);
+	this->_contacts[this->_index % 8].set_first_name(_read_info());
 
 	std::cout << "Last name: ";
-	std::getline(std::cin, str);
-	this->_contacts[this->_index % 8].set_last_name(str);
+	this->_contacts[this->_index % 8].set_last_name(_read_info());
 
 	std::cout << "Nickname: ";
-	std::getline(std::cin, str);
-	this->_contacts[this->_index % 8].set_nickname(str);
+	this->_contacts[this->_index % 8].set_nickname(_read_info());
 
 	std::cout << "Phone number: ";
-	std::getline(std::cin, str);
-	this->_contacts[this->_index % 8].set_number(str);
+	this->_contacts[this->_index % 8].set_number(_read_info());
 
 	std::cout << "Darkest secret: ";
-	std::getline(std::cin, str);
-	this->_contacts[this->_index % 8].set_secret(str);
+	this->_contacts[this->_index % 8].set_secret(_read_info());
 
-	if (this->_index < 7)
-		this->_index++;
-	else
-		this->_index = 0;
+	std::cout << "New contact saved" << std::endl;
+	this->_index = (this->_index + 1) % 8;
 	if (this->_nb_contacts < 8)
 		this->_nb_contacts++;
 }
 
 void	PhoneBook::search() const
 {
-	std::string	str;
-
 	std::cout << "  Index   |First name| Last name| Nickname " << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
-	for (int i = 0; i < this->_index; i++)
+	for (int i = 0; i < this->_nb_contacts; i++)
 	{
-		std::cout << "         " << i << '|';
+		std::cout << "         " << i + 1 << '|';
 		_print_str(this->_contacts[i].get_first_name());
 		std::cout << '|';
 		_print_str(this->_contacts[i].get_last_name());
@@ -74,6 +63,20 @@ void	PhoneBook::search() const
 		_print_str(this->_contacts[i].get_nickname());
 		std::cout << std::endl;
 	}
+	std::cout << "Select a contact: ";
+}
+
+std::string	PhoneBook::_read_info() const
+{
+	std::string	str;
+
+	std::getline(std::cin, str);
+	while (str.empty())
+	{
+		std::cout << "Please enter some information" << std::endl;
+		std::getline(std::cin, str);
+	}while (str.empty());
+	return str;
 }
 
 void	PhoneBook::_print_str(std::string str) const

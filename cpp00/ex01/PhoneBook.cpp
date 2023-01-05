@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 11:38:57 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/05 11:12:51 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/05 15:15:47 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,6 @@ void	PhoneBook::add()
 
 void	PhoneBook::search() const
 {
-	int	index;
-
 	if (this->_nb_contacts < 1)
 	{
 		std::cout << "Phonebook is empty" << std::endl;
@@ -70,14 +68,7 @@ void	PhoneBook::search() const
 		_print_str(this->_contacts[i].get_nickname());
 		std::cout << std::endl;
 	}
-	std::cout << "Select a contact: ";
-	std::cin >> index;
-	while (index < 1 || index > this->_nb_contacts)
-	{
-		std::cout << "Please enter a valid index" << std::endl;
-		std::cin >> index;
-	}
-	_print_contact(index - 1);
+	_print_contact(_read_index() - 1);
 }
 
 std::string	PhoneBook::_read_info() const
@@ -115,4 +106,21 @@ void	PhoneBook::_print_contact(int index) const
 	std::cout << this->_contacts[index].get_number() << std::endl;
 	std::cout << "Darkest secret: ";
 	std::cout << this->_contacts[index].get_secret() << std::endl << std::endl;
+}
+
+int	PhoneBook::_read_index() const
+{
+	std::string	str;
+	int			index;
+
+	do
+	{
+		do
+		{
+			std::cout << "Select a contact: ";
+			std::getline(std::cin, str);
+		} while (str.size() != 1 || !isdigit(str[0]));
+		index = stoi(str);
+	} while (index < 1 || index > this->_nb_contacts);
+	return stoi(str);
 }

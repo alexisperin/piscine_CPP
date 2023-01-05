@@ -5,23 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aperin <aperin@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/04 11:35:14 by aperin            #+#    #+#              #
-#    Updated: 2023/01/05 15:46:23 by aperin           ###   ########.fr        #
+#    Created: 2023/01/05 15:45:54 by aperin            #+#    #+#              #
+#    Updated: 2023/01/05 15:47:23 by aperin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= phonebook
+NAME	= account
 
-SRCS	= PhoneBook.cpp \
-			Contact.cpp \
-			main.cpp
+SRCS	= tests.cpp \
+			Account.cpp
 
-OBJDIR	= objs
+OBJDIR		= objs
 
-CC		= g++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CC			= g++
+CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
-OBJS	= $(addprefix ${OBJDIR}/, $(addsuffix .o, $(basename ${SRCS})))
+OBJS		= $(addprefix ${OBJDIR}/, $(addsuffix .o, $(basename ${SRCS})))
 
 ${OBJDIR}/%.o: %.cpp
 			@mkdir -p ${OBJDIR}

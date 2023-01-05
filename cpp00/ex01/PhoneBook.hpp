@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 15:51:18 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/05 08:41:01 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/05 10:50:30 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class PhoneBook
 
 		std::string	_read_info() const;
 		void		_print_str(std::string str) const;
+		void		_print_contact(int index) const;
 	
 	public:
 		// Constructor/destructor

@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 11:38:57 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/05 09:21:39 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/05 11:12:51 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,13 @@ void	PhoneBook::add()
 
 void	PhoneBook::search() const
 {
+	int	index;
+
+	if (this->_nb_contacts < 1)
+	{
+		std::cout << "Phonebook is empty" << std::endl;
+		return;
+	}
 	std::cout << "  Index   |First name| Last name| Nickname " << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
 	for (int i = 0; i < this->_nb_contacts; i++)
@@ -64,6 +71,13 @@ void	PhoneBook::search() const
 		std::cout << std::endl;
 	}
 	std::cout << "Select a contact: ";
+	std::cin >> index;
+	while (index < 1 || index > this->_nb_contacts)
+	{
+		std::cout << "Please enter a valid index" << std::endl;
+		std::cin >> index;
+	}
+	_print_contact(index - 1);
 }
 
 std::string	PhoneBook::_read_info() const
@@ -87,4 +101,18 @@ void	PhoneBook::_print_str(std::string str) const
 		std::cout << str.substr(0, 9) << '.';
 	else
 		std::cout << std::string(10 - len, ' ') << str;
+}
+
+void	PhoneBook::_print_contact(int index) const
+{
+	std::cout << std::endl << "First name: ";
+	std::cout << this->_contacts[index].get_first_name() << std::endl;
+	std::cout << "Last name: ";
+	std::cout << this->_contacts[index].get_last_name() << std::endl;
+	std::cout << "Nickname: ";
+	std::cout << this->_contacts[index].get_nickname() << std::endl;
+	std::cout << "Phone number: ";
+	std::cout << this->_contacts[index].get_number() << std::endl;
+	std::cout << "Darkest secret: ";
+	std::cout << this->_contacts[index].get_secret() << std::endl << std::endl;
 }

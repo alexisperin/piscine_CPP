@@ -6,16 +6,13 @@
 #    By: aperin <aperin@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 14:23:31 by aperin            #+#    #+#              #
-#    Updated: 2023/01/06 17:12:49 by aperin           ###   ########.fr        #
+#    Updated: 2023/01/06 17:23:51 by aperin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= ex03
+NAME	= ex04
 
-SRCS	= main.cpp \
-			Weapon.cpp \
-			HumanA.cpp \
-			HumanB.cpp \
+SRCS	= main.cpp
 
 OBJDIR		= objs
 

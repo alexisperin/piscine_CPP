@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:55:31 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/06 16:10:26 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/06 16:53:34 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Weapon
 		std::string	_type;
 
 	public:
-		Weapon();
+		Weapon(std::string type);
 		~Weapon();
 
 		const std::string	&getType();

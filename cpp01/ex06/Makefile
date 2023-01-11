@@ -6,11 +6,11 @@
 #    By: aperin <aperin@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 14:23:31 by aperin            #+#    #+#              #
-#    Updated: 2023/01/11 08:34:31 by aperin           ###   ########.fr        #
+#    Updated: 2023/01/11 10:58:43 by aperin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= ex05
+NAME	= ex06
 
 SRCS	= main.cpp \
 			Harl.cpp

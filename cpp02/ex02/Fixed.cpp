@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:35:43 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/12 10:08:40 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/12 11:27:07 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,38 +16,86 @@
 
 Fixed::Fixed()
 {
-	std::cout << "Default constructor called\n";
 	this->_point = 0;
 }
 
 Fixed::Fixed(const Fixed &copy)
 {
-	std::cout << "Copy constructor called\n";
 	*this = copy;
 }
 
 Fixed::Fixed(const int &val)
 {
-	std::cout << "Int constructor called\n";
 	this->_point = val << this->_frac;
 }
 
 Fixed::Fixed(const float &val)
 {
-	std::cout << "Float constructor called\n";
 	this->_point = roundf(val * (1 << this->_frac));
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called\n";
 }
 
 Fixed	&Fixed::operator=(const Fixed &copy)
 {
-	std::cout << "Copy assignment operator called\n";
 	this->_point = copy.getRawBits();
 	return *this;
+}
+
+bool	Fixed::operator>(const Fixed &fixed) const
+{
+	return this->toFloat() > fixed.toFloat();
+}
+
+bool	Fixed::operator<(const Fixed &fixed) const
+{
+	return this->toFloat() < fixed.toFloat();
+}
+
+bool	Fixed::operator>=(const Fixed &fixed) const
+{
+	return this->toFloat() >= fixed.toFloat();
+}
+
+bool	Fixed::operator<=(const Fixed &fixed) const
+{
+	return this->toFloat() <= fixed.toFloat();
+}
+
+bool	Fixed::operator==(const Fixed &fixed) const
+{
+	return this->toFloat() == fixed.toFloat();
+}
+
+bool	Fixed::operator!=(const Fixed &fixed) const
+{
+	return this->toFloat() != fixed.toFloat();
+}
+
+Fixed	&Fixed::operator+(const Fixed &fixed)
+{
+	Fixed	ret(this->toFloat() + fixed.toFloat());
+	return ret;
+}
+
+Fixed	&Fixed::operator-(const Fixed &fixed)
+{
+	Fixed	ret(this->toFloat() - fixed.toFloat());
+	return ret;
+}
+
+Fixed	&Fixed::operator*(const Fixed &fixed)
+{
+	Fixed	ret(this->toFloat() * fixed.toFloat());
+	return ret;
+}
+
+Fixed	&Fixed::operator/(const Fixed &fixed)
+{
+	Fixed	ret(this->toFloat() / fixed.toFloat());
+	return ret;
 }
 
 int	Fixed::getRawBits() const

@@ -6,12 +6,13 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:35:43 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/11 17:05:12 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/12 09:27:51 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
 Fixed::Fixed()
 {
@@ -25,16 +26,16 @@ Fixed::Fixed(const Fixed &copy)
 	this->_point = copy.getRawBits();
 }
 
-Fixed::Fixed(const int &point)
+Fixed::Fixed(const int &val)
 {
 	std::cout << "Int constructor called\n";
-	this->_point = point;
+	this->_point = val << this->_frac;
 }
 
-Fixed::Fixed(const float &point)
+Fixed::Fixed(const float &val)
 {
 	std::cout << "Float constructor called\n";
-	
+	this->_point = roundf(val * (1 << this->_frac));
 }
 
 Fixed::~Fixed()
@@ -59,4 +60,14 @@ void	Fixed::setRawBits(const int raw)
 {
 	std::cout << "setRawBits member function called\n";
 	this->_point = raw;
+}
+
+float	Fixed::toFloat() const
+{
+	return (float) this->_point / (1 << this->_frac);
+}
+
+int		Fixed::toInt() const
+{
+	return this->_point >> this->_frac;
 }

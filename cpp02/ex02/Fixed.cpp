@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:35:43 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/12 14:14:59 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/13 11:06:28 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,56 +46,66 @@ Fixed	&Fixed::operator=(const Fixed &copy)
 
 bool	Fixed::operator>(const Fixed &fixed) const
 {
-	return this->toFloat() > fixed.toFloat();
+	return this->getRawBits() > fixed.getRawBits();
 }
 
 bool	Fixed::operator<(const Fixed &fixed) const
 {
-	return this->toFloat() < fixed.toFloat();
+	return this->getRawBits() < fixed.getRawBits();
 }
 
 bool	Fixed::operator>=(const Fixed &fixed) const
 {
-	return this->toFloat() >= fixed.toFloat();
+	return this->getRawBits() >= fixed.getRawBits();
 }
 
 bool	Fixed::operator<=(const Fixed &fixed) const
 {
-	return this->toFloat() <= fixed.toFloat();
+	return this->getRawBits() <= fixed.getRawBits();
 }
 
 bool	Fixed::operator==(const Fixed &fixed) const
 {
-	return this->toFloat() == fixed.toFloat();
+	return this->getRawBits() == fixed.getRawBits();
 }
 
 bool	Fixed::operator!=(const Fixed &fixed) const
 {
-	return this->toFloat() != fixed.toFloat();
+	return this->getRawBits() != fixed.getRawBits();
 }
 
 Fixed	Fixed::operator+(const Fixed &fixed)
 {
-	Fixed	ret(this->toFloat() + fixed.toFloat());
-	return ret;
+	Fixed	res;
+
+	res.setRawBits(this->getRawBits() + fixed.getRawBits());
+	return res;
 }
 
 Fixed	Fixed::operator-(const Fixed &fixed)
 {
-	Fixed	ret(this->toFloat() - fixed.toFloat());
-	return ret;
+	Fixed	res;
+
+	res.setRawBits(this->getRawBits() - fixed.getRawBits());
+	return res;
 }
 
 Fixed	Fixed::operator*(const Fixed &fixed)
 {
-	Fixed	ret(this->toFloat() * fixed.toFloat());
-	return ret;
+	Fixed	res;
+
+	long tmp = (long) this->getRawBits() * (long) fixed.getRawBits();
+	res.setRawBits(tmp >> Fixed::_frac);
+	return res;
 }
 
 Fixed	Fixed::operator/(const Fixed &fixed)
 {
-	Fixed	ret(this->toFloat() / fixed.toFloat());
-	return ret;
+	Fixed	res;
+
+	int tmp = this->getRawBits() / fixed.getRawBits();
+	res.setRawBits(tmp << Fixed::_frac);
+	return res;
 }
 
 Fixed	&Fixed::operator++()

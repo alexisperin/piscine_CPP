@@ -1,32 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 16:50:56 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/12 14:01:22 by aperin           ###   ########.fr       */
+/*   Created: 2023/01/12 14:25:57 by aperin            #+#    #+#             */
+/*   Updated: 2023/01/13 08:47:26 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Fixed.hpp"
+#include "Point.hpp"
 
-int main()
+Point::Point(): _x(0), _y(0)
 {
-	Fixed a;
-	Fixed const b(Fixed(5.05f) * Fixed(2));
+}
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
+Point::Point(const Point &copy): _x(copy.getX()), _y(copy.getY())
+{
+}
 
-	std::cout << b << std::endl;
+Point::Point(const float x, const float y): _x(x), _y(y)
+{
+}
 
-	std::cout << Fixed::max( a, b ) << std::endl;
+Point::~Point()
+{
+}
 
-	return 0;
-} 
+Point	&Point::operator=(Point &copy)
+{
+	return copy;
+}
+
+Fixed	Point::getX() const
+{
+	return this->_x;
+}
+
+Fixed	Point::getY() const
+{
+	return this->_y;
+}

@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:11:58 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/16 10:03:25 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/16 10:37:44 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
 
-class	ScavTrap: public ClapTrap
+class	FragTrap: virtual public ClapTrap
 {
 	public:
 		//Constructor/destructor
-		ScavTrap();
-		ScavTrap(const std::string &name);
-		ScavTrap(const ScavTrap &copy);
-		~ScavTrap();
+		FragTrap();
+		FragTrap(const std::string &name);
+		FragTrap(const FragTrap &copy);
+		~FragTrap();
 
 		//Assignment operator
-		ScavTrap	&operator=(ScavTrap &copy);
+		FragTrap	&operator=(FragTrap &copy);
 
 		//Member functions
-		void	guardGate();
+		void	highFivesGuys();
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:11:56 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/16 10:25:27 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/16 11:16:56 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 ScavTrap::ScavTrap(): ClapTrap()
 {
+	this->_hit = 100;
+	this->_energy = 50;
+	this->_attack = 20;
 	std::cout << "ScavTrap default constructor called\n";
 }
 

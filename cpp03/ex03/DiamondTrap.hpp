@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 16:11:58 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/16 10:03:25 by aperin           ###   ########.fr       */
+/*   Created: 2023/01/16 10:33:01 by aperin            #+#    #+#             */
+/*   Updated: 2023/01/16 13:31:35 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
-#include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
-class	ScavTrap: public ClapTrap
+class DiamondTrap: public ScavTrap, public FragTrap
 {
+	private:
+		std::string	_name;
 	public:
-		//Constructor/destructor
-		ScavTrap();
-		ScavTrap(const std::string &name);
-		ScavTrap(const ScavTrap &copy);
-		~ScavTrap();
+		DiamondTrap();
+		DiamondTrap(const std::string name);
+		DiamondTrap(DiamondTrap &copy);
+		~DiamondTrap();
 
 		//Assignment operator
-		ScavTrap	&operator=(ScavTrap &copy);
+		DiamondTrap	&operator=(DiamondTrap &copy);
 
 		//Member functions
-		void	guardGate();
+		void	attack(const std::string &target);
+		void	whoAmI();
 };
 
 #endif

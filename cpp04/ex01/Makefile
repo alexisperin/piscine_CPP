@@ -6,18 +6,16 @@
 #    By: aperin <aperin@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 14:23:31 by aperin            #+#    #+#              #
-#    Updated: 2023/01/16 16:51:59 by aperin           ###   ########.fr        #
+#    Updated: 2023/01/16 17:07:46 by aperin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= ex00
+NAME	= ex01
 
 SRCS	= main.cpp \
 			Animal.cpp \
 			Dog.cpp \
-			Cat.cpp \
-			WrongAnimal \
-			WrongCat
+			Cat.cpp
 
 OBJDIR	= objs
 

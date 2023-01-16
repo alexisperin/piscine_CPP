@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 15:47:31 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/16 17:02:36 by aperin           ###   ########.fr       */
+/*   Created: 2023/01/16 17:28:14 by aperin            #+#    #+#             */
+/*   Updated: 2023/01/16 17:35:22 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#include "Brain.hpp"
+#include <iostream>
 
-#include "Animal.hpp"
-
-class Cat: public Animal
+Brain::Brain()
 {
-	public:
-		Cat();
-		Cat(const Cat &copy);
-		~Cat();
-		Cat	&operator=(const Cat &copy);
+	std::cout << "Brain default constructor called\n";
+}
 
-		virtual void	makeSound() const;
-};
+Brain::Brain(const Brain &copy)
+{
+	*this = copy;
+	std::cout << "Brain copy constructor called\n";
+}
 
-#endif
+Brain::~Brain()
+{
+	std::cout << "Brain destructor called\n";
+}
+
+Brain	&Brain::operator=(const Brain &copy)
+{
+	this->_ideas = copy._ideas;
+	std::cout << "Brain assignment operator called\n";
+}

@@ -6,21 +6,20 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:55:22 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/13 16:08:08 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/16 09:02:29 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main()
 {
-	ClapTrap	michel("Michel");
-	ClapTrap	claude("Claude");
+	ScavTrap	michel("Michel");
+	ScavTrap	claude("Claude");
 
-	michel.setAttack(3);
-	michel.attack(claude.getName());
-	claude.takeDamage(michel.getAttackDamage());
-	michel.beRepaired(5);
+	michel.guardGate();
+	claude.attack("Michel");
+	michel.takeDamage(claude.getAttackDamage());
 
 	return 0;
 }

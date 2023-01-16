@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:46:43 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/13 16:07:36 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/16 08:53:56 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string		_name;
 		unsigned int	_hit;
 		unsigned int	_energy;

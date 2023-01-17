@@ -6,21 +6,21 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:20:55 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 08:48:18 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/17 09:05:59 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include <iostream>
 
-Dog::Dog(): Animal()
+Dog::Dog(): AAnimal()
 {
 	this->_type = "Dog";
 	this->_brain = new Brain();
 	std::cout << "Dog default constructor called\n";
 }
 
-Dog::Dog(const Dog &copy): Animal(copy)
+Dog::Dog(const Dog &copy): AAnimal(copy)
 {
 	std::cout << "Dog copy constructor called\n";
 	this->_brain = new Brain();

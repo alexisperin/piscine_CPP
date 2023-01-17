@@ -6,18 +6,18 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:09:49 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 08:38:11 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/17 09:09:38 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include <iostream>
 
 int main()
 {
-	Animal	*animals[4];
+	AAnimal	*animals[4];
 
 	for (int i = 0; i < 2; i++)
 		animals[i] = new Dog();
@@ -33,6 +33,8 @@ int main()
 	for (int i = 0; i < 4; i++)
 		delete animals[i];
 	std::cout << std::endl;
+
+	// AAnimal a;
 	
 	return 0;
 }

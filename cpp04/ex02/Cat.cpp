@@ -1,48 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 15:20:55 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 08:48:18 by aperin           ###   ########.fr       */
+/*   Created: 2023/01/16 15:46:15 by aperin            #+#    #+#             */
+/*   Updated: 2023/01/17 09:06:22 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 #include <iostream>
 
-Dog::Dog(): Animal()
+Cat::Cat(): AAnimal()
 {
-	this->_type = "Dog";
+	this->_type = "Cat";
 	this->_brain = new Brain();
-	std::cout << "Dog default constructor called\n";
+	std::cout << "Cat default constructor called\n";
 }
 
-Dog::Dog(const Dog &copy): Animal(copy)
+Cat::Cat(const Cat &copy): AAnimal(copy)
 {
-	std::cout << "Dog copy constructor called\n";
+	std::cout << "Cat copy constructor called\n";
 	this->_brain = new Brain();
 	*this = copy;
 }
 
-Dog::~Dog()
+Cat::~Cat()
 {
-	std::cout << "Dog destructor called\n";
+	std::cout << "Cat destructor called\n";
 	delete this->_brain;
 }
 
-Dog	&Dog::operator=(const Dog &copy)
+Cat	&Cat::operator=(const Cat &copy)
 {
 	this->_type = copy._type;
 	*(this->_brain) = *(copy._brain);
-	std::cout << "Dog assignment operator called\n";
+	std::cout << "Cat assignment operator called\n";
 
 	return *this;
 }
 
-void	Dog::makeSound() const
+void	Cat::makeSound() const
 {
-	std::cout << "Wouf wouf\n";
+	std::cout << "Miaow miaow\n";
 }

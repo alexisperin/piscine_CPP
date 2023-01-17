@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,50 +10,45 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include <iostream>
 
-Animal::Animal()
+AAnimal::AAnimal()
 {
-	this->_type = "Some animal";
-	std::cout << "Animal default constructor called\n";
+	this->_type = "Some Aanimal";
+	std::cout << "AAnimal default constructor called\n";
 }
 
-Animal::Animal(const Animal &copy)
+AAnimal::AAnimal(const AAnimal &copy)
 {
-	std::cout << "Animal copy constructor called\n";
+	std::cout << "AAnimal copy constructor called\n";
 	*this = copy;
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-	std::cout << "Animal destructor called\n";
+	std::cout << "AAnimal destructor called\n";
 }
 
-Animal	&Animal::operator=(const Animal &copy)
+AAnimal	&AAnimal::operator=(const AAnimal &copy)
 {
 	this->_type = copy._type;
-	std::cout << "Animal assignment operator called\n";
+	std::cout << "AAnimal assignment operator called\n";
 
 	return *this;
 }
 
-void	Animal::makeSound() const
-{
-	std::cout << "I'm an animal\n";
-}
-
-std::string	Animal::getType() const
+std::string	AAnimal::getType() const
 {
 	return this->_type;
 }
 
-void	Animal::addIdea(const std::string &idea)
+void	AAnimal::addIdea(const std::string &idea)
 {
 	this->_brain->addIdea(idea);
 }
 
-std::string	Animal::getIdea(unsigned int index) const
+std::string	AAnimal::getIdea(unsigned int index) const
 {
 	return this->_brain->getIdea(index);
 }

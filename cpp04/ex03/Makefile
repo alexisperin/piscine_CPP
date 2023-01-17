@@ -6,13 +6,18 @@
 #    By: aperin <aperin@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 14:23:31 by aperin            #+#    #+#              #
-#    Updated: 2023/01/17 09:11:38 by aperin           ###   ########.fr        #
+#    Updated: 2023/01/17 14:43:36 by aperin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= ex03
 
-SRCS	= main.cpp
+SRCS	= main.cpp \
+			AMateria.cpp \
+			Character.cpp \
+			Cure.cpp \
+			Ice.cpp \
+			MateriaSource.cpp
 
 OBJDIR	= objs
 

@@ -1,49 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 09:57:58 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 15:03:35 by aperin           ###   ########.fr       */
+/*   Created: 2023/01/17 11:31:40 by aperin            #+#    #+#             */
+/*   Updated: 2023/01/17 15:04:11 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Cure.hpp"
 #include <iostream>
 
-AMateria::AMateria()
+Cure::Cure()
 {
+	this->_type = "cure";
 }
 
-AMateria::AMateria(const std::string &type)
-{
-	this->_type = type;
-}
-
-AMateria::AMateria(const AMateria &copy)
+Cure::Cure(const Cure &copy)
 {
 	*this = copy;
 }
 
-AMateria::~AMateria()
+Cure::~Cure()
 {
 }
 
-AMateria	&AMateria::operator=(const AMateria &copy)
+Cure	&Cure::operator=(const Cure &copy)
 {
 	this->_type = copy._type;
+
 	return *this;
 }
 
-const std::string	&AMateria::getType() const
+AMateria	*Cure::clone() const
 {
-	return this->_type;
+	return new Cure(*this);
 }
 
-void	AMateria::use(ICharacter &target)
+void	Cure::use(ICharacter &target)
 {
-	std::cout << "* " << this->_type << " used on " << target.getName()
-		<< " *\n";
+	std::cout << "* heals " << target.getName() << "'s wounds *\n";
 }

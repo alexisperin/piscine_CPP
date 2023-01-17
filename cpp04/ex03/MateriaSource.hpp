@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 09:12:27 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 11:28:25 by aperin           ###   ########.fr       */
+/*   Created: 2023/01/17 13:58:14 by aperin            #+#    #+#             */
+/*   Updated: 2023/01/17 14:46:28 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-# include <string>
-# include "ICharacter.hpp"
+# include "IMateriaSource.hpp"
 
-class AMateria
+class MateriaSource: public IMateriaSource
 {
-	protected:
-		std::string	_type;
-
+	private:
+		AMateria	*_materials[4];
+		
 	public:
-		AMateria();
-		AMateria(const std::string &type);
-		AMateria(const AMateria &copy);
-		virtual ~AMateria();
-		AMateria	&operator=(const AMateria &copy);
+		MateriaSource();
+		MateriaSource(const MateriaSource &copy);
+		virtual ~MateriaSource();
+		MateriaSource	&operator=(const MateriaSource &copy);
 
-		const std::string	&getType() const;
-		virtual AMateria	*clone() const = 0;
-		virtual void		use(ICharacter &target);
+		virtual void		learnMateria(AMateria *materia);
+		virtual AMateria	*createMateria(const std::string &type);
 };
 
 #endif

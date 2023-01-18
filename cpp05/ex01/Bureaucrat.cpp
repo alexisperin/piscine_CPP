@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:14:46 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 18:21:10 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/18 08:59:57 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,28 @@ void	Bureaucrat::downGrade(int amount)
 	this->_grade += amount;
 }
 
-const char* Bureaucrat::GradeTooHighException::what() const throw()
+const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("[Grade Too High Exception]: Grade must be between 1 and 150");
+	return ("[Grade Too High Exception]");
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const throw()
+const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("[Grade Too Low Exception]: Grade must be between 1 and 150");
+	return ("[Grade Too Low Exception]");
+}
+
+void	Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << this->_name << " couldn't sign " << form.getName()
+		<< " because " << e.what() << std::endl;
+	}
 }
 
 std::ostream	&operator<<(std::ostream &out, const Bureaucrat &b)

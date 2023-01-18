@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:14:45 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 18:18:55 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/18 08:59:04 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <string>
 # include <iostream>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -33,6 +36,7 @@ class Bureaucrat
 		int			getGrade() const;
 		void		upGrade(int amount);
 		void		downGrade(int amount);
+		void		signForm(Form &form);
 
 		class GradeTooHighException : public std::exception
 		{

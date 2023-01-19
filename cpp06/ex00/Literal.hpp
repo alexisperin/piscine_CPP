@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:47:30 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/19 11:17:46 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/19 15:27:21 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,17 @@ class Literal
 {
 	private:
 		const std::string	_s;
+		int					_type;
 		char				_c;
 		int					_i;
 		float				_f;
 		double				_d;
 
-		int	_getType() const;
+		void	_toType();
+		void	_toChar();
+		void	_toInt();
+		void	_toFloat();
+		void	_toDouble();
 
 	public:
 		Literal();
@@ -33,10 +38,6 @@ class Literal
 		~Literal();
 		Literal	&operator=(const Literal &copy);
 
-		char	toChar() const;
-		int		toInt() const;
-		float	toFloat() const;
-		double	toDouble() const;
 		void	displayLiteral() const;
 };
 

@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:00:26 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/19 15:37:24 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/20 10:19:25 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void	Literal::_toType()
 
 	//Check int
 	int i = 0;
+	if (input[i] == '+' || input[i] == '-')
+		i++;
 	while (isdigit(input[i]))
 		i++;
 	if (input[i] == 0)
@@ -62,6 +64,8 @@ void	Literal::_toType()
 	//Check float
 	int dot = 0;
 	i = 0;
+	if (input[i] == '+' || input[i] == '-')
+		i++;
 	while (isdigit(input[i]) || input[i] == '.')
 	{
 		if (input[i] == '.')
@@ -76,6 +80,8 @@ void	Literal::_toType()
 	//Check double
 	dot = 0;
 	i = 0;
+	if (input[i] == '+' || input[i] == '-')
+		i++; 
 	while (isdigit(input[i]) || input[i] == '.')
 	{
 		if (input[i] == '.')
@@ -101,7 +107,7 @@ void	Literal::_toChar()
 void	Literal::_toInt()
 {
 	this->_type = 1;
-	this->_i = atoi(this->_s);
+	this->_i = atoi(this->_s.c_str());
 	this->_i = static_cast<int>(this->_c);
 	this->_f = static_cast<float>(this->_c);
 	this->_d = static_cast<double>(this->_c);

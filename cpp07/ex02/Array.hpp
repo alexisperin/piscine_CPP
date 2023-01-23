@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 17:11:32 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/23 17:31:20 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/23 22:31:15 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,32 +21,33 @@ class Array
 		T				*_array;
 
 	public:
-		Array()
+		Array<T>()
 		{
 			this->_size = 0;
 			this->_array = new T[0];
 		};
 
-		Array(unsigned int n)
+		Array<T>(unsigned int n)
 		{
 			this->_size = n;
-			this->_array = new T[n];
+			if (n > 0)
+				this->_array = new T[n];
 		};
 
-		Array(const Array &copy)
+		Array<T>(const Array &copy)
 		{
 			*this = copy;
 		};
 
-		~Array()
+		~Array<T>()
 		{
-			delete T[];
+			if (this->_size)
+				delete[] this->_array;
 		};
 
-		Array	&operator=(const Array &copy)
+		Array<T>	&operator=(const Array &copy)
 		{
 			this->_size = copy._size;
-			delete this->_array[];
 			this->_array = new T[this->_size];
 			for (unsigned int i = 0; i < this->_size; i++)
 				this->_array[i] = copy._array[i];
@@ -57,13 +58,13 @@ class Array
 		T	&operator[](unsigned int i)
 		{
 			if (i < 0 || i >= this->_size)
-				throw Array::OutOfRangeExcpetion();
+				throw Array::OutOfRangeException();
 			return this->_array[i];
 		};
 
 		class OutOfRangeException: public std::exception
 		{
-			const char	*what() const throw
+			const char	*what() const throw()
 			{
 				return "[OutOfRangeException]";
 			}

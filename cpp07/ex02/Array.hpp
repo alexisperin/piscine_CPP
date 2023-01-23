@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 17:11:32 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/23 22:31:15 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/23 22:46:13 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class Array
 		Array<T>()
 		{
 			this->_size = 0;
-			this->_array = new T[0];
 		};
 
 		Array<T>(unsigned int n)
@@ -36,6 +35,7 @@ class Array
 
 		Array<T>(const Array &copy)
 		{
+			this->_size = 0;
 			*this = copy;
 		};
 
@@ -47,6 +47,8 @@ class Array
 
 		Array<T>	&operator=(const Array &copy)
 		{
+			if (this->_size)
+				delete[] this->_array;
 			this->_size = copy._size;
 			this->_array = new T[this->_size];
 			for (unsigned int i = 0; i < this->_size; i++)

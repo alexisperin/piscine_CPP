@@ -5,21 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 15:22:52 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/23 09:56:28 by aperin           ###   ########.fr       */
+/*   Created: 2023/01/23 13:52:26 by aperin            #+#    #+#             */
+/*   Updated: 2023/01/23 14:12:41 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Literal.hpp"
+#include "Data.hpp"
 #include <iostream>
 
-int main(int ac, char **av)
+uintptr_t	serialize(Data *ptr)
 {
-	if (ac != 2)
-	{
-		std::cout << "Please enter exactly one argument\n";
-		return 1;
-	}
+	return reinterpret_cast<uintptr_t>(ptr);
+}
 
-	Literal l(av[1]);
+Data	*deserialize(uintptr_t raw)
+{
+	return reinterpret_cast<Data *>(raw);
+}
+
+int	main()
+{
+	Data	*data = new Data();
+	std::cout << "data: " << *data << std::endl;
+
+	uintptr_t	raw = serialize(data);
+	std::cout << "raw pointer: " << raw << std::endl;
+
+	Data	*new_data = deserialize(raw);
+	std::cout << "new data: " << *new_data << std::endl;
+
+	delete data;
+
+	return 0;
 }

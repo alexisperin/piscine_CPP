@@ -1,37 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Literal.hpp                                        :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 17:47:30 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/23 09:45:56 by aperin           ###   ########.fr       */
+/*   Created: 2023/01/23 14:32:24 by aperin            #+#    #+#             */
+/*   Updated: 2023/01/23 15:42:37 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LITERAL_HPP
-# define LITERAL_HPP
+#ifndef BASE_HPP
+# define BASE_HPP
 
-# include <string>
-
-class Literal
+class Base
 {
-	private:
-		const std::string	_s;
-
-		void	_toType();
-		void	_toChar();
-		void	_toInt();
-		void	_toFloat();
-		void	_toDouble();
-
 	public:
-		Literal();
-		Literal(const std::string input);
-		Literal(const Literal &copy);
-		~Literal();
-		Literal	&operator=(const Literal &copy);
+		virtual ~Base(){};
+};
+
+class A: public Base
+{
+	public:
+		A(){};
+		~A(){};
+		void	print_type();
+};
+
+class B: public Base
+{
+	public:
+		B(){};
+		~B(){};
+		void	print_type();
+};
+
+class C: public Base
+{
+	public:
+		C(){};
+		~C(){};
+		void	print_type();
 };
 
 #endif

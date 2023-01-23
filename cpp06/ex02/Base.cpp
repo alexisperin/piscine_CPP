@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Literal.hpp                                        :+:      :+:    :+:   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 17:47:30 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/23 09:45:56 by aperin           ###   ########.fr       */
+/*   Created: 2023/01/23 15:42:51 by aperin            #+#    #+#             */
+/*   Updated: 2023/01/23 15:44:06 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LITERAL_HPP
-# define LITERAL_HPP
+#include "Base.hpp"
+#include <iostream>
 
-# include <string>
-
-class Literal
+void	A::print_type()
 {
-	private:
-		const std::string	_s;
+	std::cout << "Type: A\n";
+}
 
-		void	_toType();
-		void	_toChar();
-		void	_toInt();
-		void	_toFloat();
-		void	_toDouble();
+void	B::print_type()
+{
+	std::cout << "Type: B\n";
+}
 
-	public:
-		Literal();
-		Literal(const std::string input);
-		Literal(const Literal &copy);
-		~Literal();
-		Literal	&operator=(const Literal &copy);
-};
-
-#endif
+void	C::print_type()
+{
+	std::cout << "Type: C\n";
+}

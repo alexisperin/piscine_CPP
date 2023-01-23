@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Literal.hpp                                        :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 17:47:30 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/23 09:45:56 by aperin           ###   ########.fr       */
+/*   Created: 2023/01/23 13:41:39 by aperin            #+#    #+#             */
+/*   Updated: 2023/01/23 13:52:57 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LITERAL_HPP
-# define LITERAL_HPP
+#ifndef DATA_HPP
+# define DATA_HPP
 
-# include <string>
+# include <iostream>
 
-class Literal
+class Data
 {
 	private:
-		const std::string	_s;
-
-		void	_toType();
-		void	_toChar();
-		void	_toInt();
-		void	_toFloat();
-		void	_toDouble();
+		int	_a;
+		int	_b;
 
 	public:
-		Literal();
-		Literal(const std::string input);
-		Literal(const Literal &copy);
-		~Literal();
-		Literal	&operator=(const Literal &copy);
+		Data();
+		Data(const Data &copy);
+		~Data();
+		Data	&operator=(const Data &copy);
+
+		int	getA() const;
+		int	getB() const;
 };
+
+std::ostream	&operator<<(std::ostream &out, const Data &data);
 
 #endif

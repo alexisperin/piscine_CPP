@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:47:30 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/19 15:27:21 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/23 09:19:50 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Literal
 {
 	private:
 		const std::string	_s;
-		int					_type;
+		int					_flags[] = {1, 1, 1, 1};
 		char				_c;
 		int					_i;
 		float				_f;

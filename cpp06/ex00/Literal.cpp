@@ -6,12 +6,14 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:00:26 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/20 10:19:25 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/23 09:09:19 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Literal.hpp"
 #include <iostream>
+#include <stdlib.h>
+#include <sstream>
 
 Literal::Literal(): _s("")
 {
@@ -97,7 +99,7 @@ void	Literal::_toType()
 
 void	Literal::_toChar()
 {
-	this->_type = 0;
+	this->_flags = {1, 1, 1, 1};
 	this->_c = this->_s[0];
 	this->_i = static_cast<int>(this->_c);
 	this->_f = static_cast<float>(this->_c);
@@ -106,11 +108,10 @@ void	Literal::_toChar()
 
 void	Literal::_toInt()
 {
-	this->_type = 1;
 	this->_i = atoi(this->_s.c_str());
-	this->_i = static_cast<int>(this->_c);
-	this->_f = static_cast<float>(this->_c);
-	this->_d = static_cast<double>(this->_c);
+	this->_c = static_cast<int>(this->_i);
+	this->_f = static_cast<float>(this->_i);
+	this->_d = static_cast<double>(this->_i);
 }
 
 void	Literal::_toFloat()
@@ -131,15 +132,25 @@ void	Literal::_toDouble()
 
 void	Literal::displayLiteral() const
 {
-	if (this->_type == -1)
-	{
+	if (this->_flags[0] == -1)
+		std::cout << "char: non displayable\n";
+	else if (this->_flags[0] == 0)
 		std::cout << "char: impossible\n";
+	else
+		std::cout << "char: " << this->_c << std::endl;
+	
+	if (this->_flags[1] == 0)
 		std::cout << "int: impossible\n";
+	else
+		std::cout << "int: " << this->_i << std::endl;
+
+	if (this->_flags[2] == 0)
 		std::cout << "float: impossible\n";
+	else
+		std::cout << "float: " << this->_i << std::endl;
+		
+	if (this->_flags[3] == 0)
 		std::cout << "double: impossible\n";
-	}
-	std::cout << "char: " << this->_c << std::endl;
-	std::cout << "int: " << this->_i << std::endl;
-	std::cout << "float: " << this->_f << std::endl;
-	std::cout << "double: " << this->_d << std::endl;
+	else
+		std::cout << "double: " << this->_i << std::endl;
 }

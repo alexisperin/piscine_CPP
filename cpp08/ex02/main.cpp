@@ -6,11 +6,12 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 14:25:46 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/24 14:33:13 by aperin           ###   ########.fr       */
+/*   Updated: 2023/01/24 17:08:23 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
+#include <iostream>
 
 int main()
 {

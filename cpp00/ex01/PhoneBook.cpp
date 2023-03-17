@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 11:38:57 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/05 15:15:47 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/17 14:45:23 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,19 @@ PhoneBook::~PhoneBook()
 void	PhoneBook::add()
 {
 	std::cout << "First name: ";
-	this->_contacts[this->_index % 8].set_first_name(_read_info());
+	this->_contacts[this->_index].set_first_name(_read_info());
 
 	std::cout << "Last name: ";
-	this->_contacts[this->_index % 8].set_last_name(_read_info());
+	this->_contacts[this->_index].set_last_name(_read_info());
 
 	std::cout << "Nickname: ";
-	this->_contacts[this->_index % 8].set_nickname(_read_info());
+	this->_contacts[this->_index].set_nickname(_read_info());
 
 	std::cout << "Phone number: ";
-	this->_contacts[this->_index % 8].set_number(_read_info());
+	this->_contacts[this->_index].set_number(_read_info());
 
 	std::cout << "Darkest secret: ";
-	this->_contacts[this->_index % 8].set_secret(_read_info());
+	this->_contacts[this->_index].set_secret(_read_info());
 
 	std::cout << "New contact saved" << std::endl;
 	this->_index = (this->_index + 1) % 8;
@@ -80,7 +80,7 @@ std::string	PhoneBook::_read_info() const
 	{
 		std::cout << "Please enter some information" << std::endl;
 		std::getline(std::cin, str);
-	}while (str.empty());
+	}
 	return str;
 }
 

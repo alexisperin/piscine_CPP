@@ -6,17 +6,12 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:37:52 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/03 14:59:38 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/17 14:40:15 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cstring>
-
-char ft_toupper(char c)
-{
-	return ((c >= 97 && c <= 122) ? c - 32 : c);
-}
+#include <string>
 
 int main(int ac, char **av)
 {
@@ -24,9 +19,10 @@ int main(int ac, char **av)
 	{
 		for (int i = 1; i < ac; i++)
 		{
-			int len = strlen(av[i]);
+			std::string	str = av[i];
+			int len = str.length();
 			for (int j = 0; j < len; j++)
-				std::cout << ft_toupper(av[i][j]);
+				std::cout << (char)toupper(str[j]);
 		}
 		std::cout << std::endl;
 	}

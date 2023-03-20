@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:07:18 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/13 09:20:18 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/20 12:02:40 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 	Fixed	A2(area(a, c, point));
 	Fixed	A3(area(b, c, point));
 
+	if (A1 == 0 || A2 == 0 || A3 == 0)
+		return false;
 	return A == A1 + A2 + A3;
 }

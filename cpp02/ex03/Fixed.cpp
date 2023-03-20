@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:35:43 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/13 11:06:28 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/20 12:01:26 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,19 +92,13 @@ Fixed	Fixed::operator-(const Fixed &fixed)
 
 Fixed	Fixed::operator*(const Fixed &fixed)
 {
-	Fixed	res;
-
-	long tmp = (long) this->getRawBits() * (long) fixed.getRawBits();
-	res.setRawBits(tmp >> Fixed::_frac);
+	Fixed	res(this->toFloat() * fixed.toFloat());
 	return res;
 }
 
 Fixed	Fixed::operator/(const Fixed &fixed)
 {
-	Fixed	res;
-
-	int tmp = this->getRawBits() / fixed.getRawBits();
-	res.setRawBits(tmp << Fixed::_frac);
+	Fixed	res(this->toFloat() / fixed.toFloat());
 	return res;
 }
 

@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:35:43 by aperin            #+#    #+#             */
-/*   Updated: 2023/03/21 14:52:25 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/21 16:59:24 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,7 @@ Fixed	Fixed::operator*(const Fixed &fixed)
 {
 	Fixed	res;
 
-	res.setRawBits(((long) this->_point * (long) fixed._point)
-						>> this->_frac);
+	res.setRawBits(((long) this->_point * (long) fixed._point) >> this->_frac);
 	return (res);
 }
 

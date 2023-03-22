@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 10:33:01 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/16 13:31:35 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/22 12:22:58 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ class DiamondTrap: public ScavTrap, public FragTrap
 		DiamondTrap	&operator=(DiamondTrap &copy);
 
 		//Member functions
-		void	attack(const std::string &target);
 		void	whoAmI();
+		using ScavTrap::attack;
 };
 
 #endif

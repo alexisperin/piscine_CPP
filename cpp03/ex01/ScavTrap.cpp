@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:11:56 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/16 10:25:27 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/22 11:31:34 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,21 @@ ScavTrap	&ScavTrap::operator=(ScavTrap &copy)
 void	ScavTrap::guardGate()
 {
 	std::cout << "ScavTrap " << this->_name << " is in gate keeper mode\n";
+}
+
+void	ScavTrap::attack(const std::string &target)
+{
+	if (this->_energy < 1)
+	{
+		std::cout << "ScavTrap " << this->_name << " is out of energy !\n";
+		return ;
+	}
+	if (this->_hit < 1)
+	{
+		std::cout << "ScavTrap " << this->_name << " is dead !\n";
+		return ;
+	}
+	this->_energy--;
+	std::cout << "ScavTrap " << this->_name << " attacks " << target
+		<< " causing " << this->_attack << " damage\n";
 }

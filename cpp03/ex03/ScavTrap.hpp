@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:11:58 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/16 10:37:36 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/22 12:22:15 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class	ScavTrap: virtual public ClapTrap
 		ScavTrap	&operator=(ScavTrap &copy);
 
 		//Member functions
+		void	attack(const std::string &target);
 		void	guardGate();
 };
 

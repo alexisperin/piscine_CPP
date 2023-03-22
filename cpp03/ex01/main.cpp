@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:55:22 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/16 09:02:29 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/22 11:48:38 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 int	main()
 {
-	ScavTrap	michel("Michel");
-	ScavTrap	claude("Claude");
+	ScavTrap	a("a");
+	ScavTrap	b("b");
+	ClapTrap	c("c");
 
-	michel.guardGate();
-	claude.attack("Michel");
-	michel.takeDamage(claude.getAttackDamage());
+	a.guardGate();
+	b.attack("a");
+	a.takeDamage(b.getAttackDamage());
+	c.attack("a");
 
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:11:58 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/16 10:37:44 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/22 12:18:16 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class	FragTrap: virtual public ClapTrap
 		FragTrap	&operator=(FragTrap &copy);
 
 		//Member functions
-		void	highFivesGuys();
+		void			highFivesGuys();
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 10:50:39 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/16 13:35:50 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/22 11:57:32 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,6 @@ DiamondTrap	&DiamondTrap::operator=(DiamondTrap &copy)
 	this->_attack = copy._attack;
 
 	return *this;
-}
-
-void	DiamondTrap::attack(const std::string &target)
-{
-	ScavTrap::attack(target);
 }
 
 void	DiamondTrap::whoAmI()

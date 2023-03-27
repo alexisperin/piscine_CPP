@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:47:15 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/16 17:03:36 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/27 10:36:25 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class WrongAnimal
 	public:
 		WrongAnimal();
 		WrongAnimal(const WrongAnimal &copy);
-		virtual ~WrongAnimal();
+		~WrongAnimal();
 
 		//Assignment operator
 		WrongAnimal	&operator=(const WrongAnimal &copy);

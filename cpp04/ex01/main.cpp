@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:09:49 by aperin            #+#    #+#             */
-/*   Updated: 2023/03/27 11:57:33 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/27 15:23:30 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int main()
 	animals[0]->addIdea("This is so boring");
 	Dog	copy(*(Dog *) animals[0]);
 	animals[0]->addIdea("This is sooooooooooooooooo boring");
-	std::cout << animals[0]->getIdea(1) << std::endl;
 	std::cout << copy.getIdea(1) << std::endl;
+	std::cout << animals[0]->getIdea(1) << std::endl;
 	std::cout << std::endl;
 
 	for (int i = 0; i < 4; i++)

@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:28:14 by aperin            #+#    #+#             */
-/*   Updated: 2023/03/27 17:45:34 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/27 19:24:32 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ Brain::Brain()
 
 Brain::Brain(const Brain &copy)
 {
-	*this = copy;
 	std::cout << "Brain copy constructor called\n";
+	*this = copy;
 }
 
 Brain::~Brain()

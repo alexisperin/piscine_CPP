@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:46:15 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 09:06:22 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/27 21:09:53 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 
 Cat::Cat(): AAnimal()
 {
+	std::cout << "Cat default constructor called\n";
 	this->_type = "Cat";
 	this->_brain = new Brain();
-	std::cout << "Cat default constructor called\n";
 }
 
 Cat::Cat(const Cat &copy): AAnimal(copy)
 {
 	std::cout << "Cat copy constructor called\n";
-	this->_brain = new Brain();
-	*this = copy;
+	this->_type = copy._type;
+	this->_brain = new Brain(*copy._brain);
 }
 
 Cat::~Cat()
@@ -35,9 +35,9 @@ Cat::~Cat()
 
 Cat	&Cat::operator=(const Cat &copy)
 {
+	std::cout << "Cat assignment operator called\n";
 	this->_type = copy._type;
 	*(this->_brain) = *(copy._brain);
-	std::cout << "Cat assignment operator called\n";
 
 	return *this;
 }
@@ -45,4 +45,15 @@ Cat	&Cat::operator=(const Cat &copy)
 void	Cat::makeSound() const
 {
 	std::cout << "Miaow miaow\n";
+}
+
+void	Cat::addIdea(const std::string &idea)
+{
+	this->_brain->addIdea(idea);
+}
+
+std::string	Cat::getIdea(unsigned int index) const
+{
+	return this->_brain->getIdea(index);
+	
 }

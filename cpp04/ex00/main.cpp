@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:09:49 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/16 17:00:30 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/27 17:41:34 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int main()
 
 	meta->makeSound();
 	j->makeSound();
-	i->makeSound(); //will output the cat sound!
+	i->makeSound();
 	std::cout << std::endl;
 
 	delete meta;
@@ -51,7 +51,7 @@ int main()
 	std::cout << std::endl;
 
 	w_animal->makeSound();
-	w_cat->makeSound(); //will output the cat sound!
+	w_cat->makeSound();
 	std::cout << std::endl;
 
 	delete w_animal;

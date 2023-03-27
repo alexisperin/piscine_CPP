@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:28:14 by aperin            #+#    #+#             */
-/*   Updated: 2023/03/27 12:08:25 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/27 17:59:44 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	Brain::addIdea(const std::string &idea)
 
 std::string	Brain::getIdea(unsigned int index) const
 {
-	if (index >= 0 && index <= 99)
+	if (index <= 99)
 		return this->_ideas[index];
 	return std::string();
 }

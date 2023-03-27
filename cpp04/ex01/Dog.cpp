@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:20:55 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 08:48:18 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/27 17:52:44 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,18 @@
 Dog::Dog(): Animal()
 {
 	this->_type = "Dog";
-	this->_brain = new Brain();
 	std::cout << "Dog default constructor called\n";
 }
 
 Dog::Dog(const Dog &copy): Animal(copy)
 {
 	std::cout << "Dog copy constructor called\n";
-	this->_brain = new Brain();
 	*this = copy;
 }
 
 Dog::~Dog()
 {
 	std::cout << "Dog destructor called\n";
-	delete this->_brain;
 }
 
 Dog	&Dog::operator=(const Dog &copy)

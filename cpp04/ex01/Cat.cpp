@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:46:15 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 08:48:57 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/27 17:52:54 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,18 @@
 Cat::Cat(): Animal()
 {
 	this->_type = "Cat";
-	this->_brain = new Brain();
 	std::cout << "Cat default constructor called\n";
 }
 
 Cat::Cat(const Cat &copy): Animal(copy)
 {
 	std::cout << "Cat copy constructor called\n";
-	this->_brain = new Brain();
 	*this = copy;
 }
 
 Cat::~Cat()
 {
 	std::cout << "Cat destructor called\n";
-	delete this->_brain;
 }
 
 Cat	&Cat::operator=(const Cat &copy)

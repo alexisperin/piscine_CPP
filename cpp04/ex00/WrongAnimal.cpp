@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:50:11 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/16 16:55:47 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/24 15:41:23 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &copy)
 
 void	WrongAnimal::makeSound() const
 {
-	std::cout << "I'm an WrongAnimal\n";
+	std::cout << "I'm a WrongAnimal\n";
 }
 
 std::string	WrongAnimal::getType() const

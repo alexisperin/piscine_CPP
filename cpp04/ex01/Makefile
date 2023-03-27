@@ -6,7 +6,7 @@
 #    By: aperin <aperin@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 14:23:31 by aperin            #+#    #+#              #
-#    Updated: 2023/01/17 08:40:01 by aperin           ###   ########.fr        #
+#    Updated: 2023/03/27 11:56:04 by aperin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ ${OBJDIR}/%.o: %.cpp
 			${CC} ${CFLAGS} -c -o $@ $<
 
 ${NAME}:	${OBJS}
-			${CC} ${OBJS} -o ${NAME}
+			${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
 all:		${NAME}
 

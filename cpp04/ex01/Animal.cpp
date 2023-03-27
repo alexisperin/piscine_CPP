@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:00:35 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/16 19:30:40 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/27 12:01:59 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,5 @@ void	Animal::addIdea(const std::string &idea)
 std::string	Animal::getIdea(unsigned int index) const
 {
 	return this->_brain->getIdea(index);
+	
 }

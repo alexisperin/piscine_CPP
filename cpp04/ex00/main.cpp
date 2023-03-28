@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:09:49 by aperin            #+#    #+#             */
-/*   Updated: 2023/03/27 17:41:34 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/28 10:33:41 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int main()
 
 	delete w_animal;
 	delete w_cat;
-	std::cout << std::endl;
 
 	return 0;
 }

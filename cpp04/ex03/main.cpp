@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 10:15:23 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 13:53:38 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/28 11:49:10 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "Character.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
+#include <iostream>
 
 int main()
 {
@@ -37,6 +38,29 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
+
+	std::cout << std::endl;
+	IMateriaSource*	source = new MateriaSource();
+	source->learnMateria(new Ice());
+	source->learnMateria(new Cure());
+	ICharacter*	man = new Character("man");
+	AMateria*	temp;
+	temp = source->createMateria("icing cake");
+	man->equip(temp);
+	temp = source->createMateria("cure");
+	man->equip(temp);
+
+	ICharacter*	bobby = new Character("bobby");
+	man->use(0, *bobby);
+	man->use(1, *bobby);
+
+	man->unequip(0);
+	man->use(0, *bobby);
+
+	delete temp;
+	delete bobby;
+	delete man;
+	delete source;
 
 	return 0;
 }

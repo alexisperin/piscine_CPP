@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:57:58 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 15:03:35 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/28 11:11:19 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ AMateria::~AMateria()
 
 AMateria	&AMateria::operator=(const AMateria &copy)
 {
-	this->_type = copy._type;
+	(void) copy;
 	return *this;
 }
 

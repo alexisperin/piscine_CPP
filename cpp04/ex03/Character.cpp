@@ -6,13 +6,13 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 11:35:16 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 14:08:25 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/28 11:13:30 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character()
+Character::Character(): _name("")
 {
 	for (int i = 0; i < 4; i++)
 		this->_materials[i] = NULL;

@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 11:31:40 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 15:04:11 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/28 11:46:07 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ Cure::Cure()
 
 Cure::Cure(const Cure &copy)
 {
-	*this = copy;
+	(void) copy;
+	this->_type = "cure";
 }
 
 Cure::~Cure()
@@ -29,8 +30,7 @@ Cure::~Cure()
 
 Cure	&Cure::operator=(const Cure &copy)
 {
-	this->_type = copy._type;
-
+	(void) copy;
 	return *this;
 }
 

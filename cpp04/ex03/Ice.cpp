@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 11:03:47 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 13:45:52 by aperin           ###   ########.fr       */
+/*   Updated: 2023/03/28 11:46:23 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ Ice::Ice()
 
 Ice::Ice(const Ice &copy)
 {
-	*this = copy;
+	(void) copy;
+	this->_type = "ice";
 }
 
 Ice::~Ice()
@@ -29,8 +30,7 @@ Ice::~Ice()
 
 Ice	&Ice::operator=(const Ice &copy)
 {
-	this->_type = copy._type;
-
+	(void) copy;
 	return *this;
 }
 

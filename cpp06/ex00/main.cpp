@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:22:52 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/23 09:56:28 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/03 16:10:57 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Literal.hpp"
+#include "ScalarConverter.hpp"
 #include <iostream>
 
 int main(int ac, char **av)
@@ -21,5 +21,5 @@ int main(int ac, char **av)
 		return 1;
 	}
 
-	Literal l(av[1]);
+	ScalarConverter::convert(av[1]);
 }

@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aperin <aperin@student.s19.be>             +#+  +:+       +#+         #
+#    By: aperin <aperin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 14:23:31 by aperin            #+#    #+#              #
-#    Updated: 2023/01/23 08:29:08 by aperin           ###   ########.fr        #
+#    Updated: 2023/04/03 15:18:09 by aperin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= convert
 
 SRCS	= main.cpp \
-			Literal.cpp
+			ScalarConverter.cpp
 
 OBJDIR	= objs
 

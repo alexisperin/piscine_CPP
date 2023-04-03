@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:56:01 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 18:12:49 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/03 11:48:30 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ int main()
 	{
 		Bureaucrat	a("Michel", 150);
 		std::cout << a << std::endl;
-		a.upGrade(100);
+		a.upGrade();
 		std::cout << a << std::endl;
-		a.upGrade(100);
+		a.downGrade();
+		std::cout << a << std::endl;
+		a.downGrade();
 		std::cout << a << std::endl;
 	}
 	catch (std::exception &e)

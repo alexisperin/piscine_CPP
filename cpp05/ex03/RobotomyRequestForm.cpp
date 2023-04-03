@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:50:10 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/18 13:28:41 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/03 12:09:52 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 RobotomyRequestForm::RobotomyRequestForm():
 	AForm("RobotomyRequestForm", "", 72, 45)
 {
+	std::srand(std::time(0));
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target):
 	AForm("RobotomyRequestForm", target, 72, 45)
 {
+	std::srand(std::time(0));
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy):

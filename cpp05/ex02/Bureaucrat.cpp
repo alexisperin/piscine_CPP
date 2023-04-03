@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:14:46 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/18 11:28:18 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/03 11:46:25 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,18 @@ int	Bureaucrat::getGrade() const
 	return this->_grade;
 }
 
-void	Bureaucrat::upGrade(int amount)
+void	Bureaucrat::upGrade()
 {
-	if (this->_grade - amount <= 0)
+	if (this->_grade <= 1)
 		throw Bureaucrat::GradeTooHighException();
-	this->_grade -= amount;
+	this->_grade--;
 }
 
-void	Bureaucrat::downGrade(int amount)
+void	Bureaucrat::downGrade()
 {
-	if (this->_grade + amount > 150)
+	if (this->_grade >= 150)
 		throw Bureaucrat::GradeTooLowException();
-	this->_grade += amount;
+	this->_grade++;
 }
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()

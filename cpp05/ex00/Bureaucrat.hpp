@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:14:45 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/17 18:18:55 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/03 11:48:03 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class Bureaucrat
 
 		std::string	getName() const;
 		int			getGrade() const;
-		void		upGrade(int amount);
-		void		downGrade(int amount);
+		void		upGrade();
+		void		downGrade();
 
 		class GradeTooHighException : public std::exception
 		{

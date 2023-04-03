@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 13:52:26 by aperin            #+#    #+#             */
-/*   Updated: 2023/04/03 17:01:26 by aperin           ###   ########.fr       */
+/*   Created: 2023/04/03 16:45:06 by aperin            #+#    #+#             */
+/*   Updated: 2023/04/03 17:13:29 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Data.hpp"
-#include "Serializer.hpp"
-#include <iostream>
+#ifndef SERIALIZER_HPP
+# define SERIALIZER_HPP
 
-int	main()
+# include "Data.hpp"
+# include <stdint.h>
+
+class Serializer
 {
-	Data	*data = new Data();
-	std::cout << "data: " << *data << std::endl;
+	public:
+		Serializer();
+		Serializer(const Serializer &copy);
+		Serializer	&operator=(const Serializer &copy);
+		~Serializer();
 
-	uintptr_t	raw = Serializer::serialize(data);
-	std::cout << "raw pointer: " << raw << std::endl;
+		static uintptr_t	serialize(Data *ptr);
+		static Data			*deserialize(uintptr_t raw);
+};
 
-	Data	*new_data = Serializer::deserialize(raw);
-	std::cout << "new data: " << *new_data << std::endl;
-
-	delete data;
-
-	return 0;
-}
+#endif

@@ -6,13 +6,14 @@
 #    By: aperin <aperin@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 14:23:31 by aperin            #+#    #+#              #
-#    Updated: 2023/01/23 13:41:08 by aperin           ###   ########.fr        #
+#    Updated: 2023/04/03 17:00:14 by aperin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= ex01
 
 SRCS	= main.cpp \
+			Serializer.cpp \
 			Data.cpp
 
 OBJDIR	= objs

@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 15:44:51 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/23 16:00:16 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/03 17:27:24 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	identify(Base &p)
 	}
 	catch(const std::exception& e)
 	{
-		// std::cout << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	try
 	{
@@ -62,7 +62,7 @@ void	identify(Base &p)
 	}
 	catch(const std::exception& e)
 	{
-		// std::cout << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	try
 	{
@@ -71,7 +71,7 @@ void	identify(Base &p)
 	}
 	catch(const std::exception& e)
 	{
-		// std::cout << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 }
 

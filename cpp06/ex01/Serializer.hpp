@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 16:45:06 by aperin            #+#    #+#             */
-/*   Updated: 2023/04/03 17:13:29 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/04 13:20:54 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 
 class Serializer
 {
-	public:
+	private:
 		Serializer();
 		Serializer(const Serializer &copy);
 		Serializer	&operator=(const Serializer &copy);
+
+	public:
 		~Serializer();
 
 		static uintptr_t	serialize(Data *ptr);

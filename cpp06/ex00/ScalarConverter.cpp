@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:22:06 by aperin            #+#    #+#             */
-/*   Updated: 2023/04/03 16:11:43 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/04 13:15:39 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ void	ScalarConverter::_toInt(std::string str)
 
 void	ScalarConverter::_toFloat(std::string str)
 {
-	double	n;
+	float	n;
 
 	if (str == "-inff" || str == "+inff" || str == "nanf")
 	{
@@ -142,9 +142,8 @@ void	ScalarConverter::_toFloat(std::string str)
 			<< std::endl;
 		return ;
 	}
-	n = strtod(str.c_str(), NULL);
-	if (n == HUGE_VAL || n == -HUGE_VAL || errno == ERANGE
-		|| (float) n < n || (float) n > n)
+	n = strtof(str.c_str(), NULL);
+	if (n == HUGE_VALF || n == -HUGE_VALF || errno == ERANGE)
 	{
 		std::cout << "char: impossible\n";
 		std::cout << "int: impossible\n";

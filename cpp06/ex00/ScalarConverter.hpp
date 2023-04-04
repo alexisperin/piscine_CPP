@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:18:27 by aperin            #+#    #+#             */
-/*   Updated: 2023/04/03 16:08:30 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/04 09:38:55 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ class ScalarConverter
 		static void	_toFloat(std::string str);
 		static void	_toDouble(std::string str);
 
-	public:
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &copy);
 		~ScalarConverter();
 		ScalarConverter	&operator=(const ScalarConverter &copy);
+
+	public:
 		static void	convert(std::string str);
 };
 

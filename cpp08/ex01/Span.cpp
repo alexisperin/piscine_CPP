@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 10:57:48 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/24 14:20:34 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/11 17:00:32 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,38 +44,56 @@ void	Span::addNumber(int n)
 	this->_numbers.push_back(n);
 }
 
+void	Span::addNumbers(std::list<int>::const_iterator begin, std::list<int>::const_iterator end)
+{
+	if (this->_numbers.size() >= this->_N)
+		throw Span::NoSpanFoundException();
+	this->_numbers.insert(this->_numbers.end(), begin, end);
+}
+
 unsigned int	Span::shortestSpan() const
 {
-	std::list<unsigned int>	distances;
+	unsigned int	min;
 	std::list<int>::const_iterator	iter;
-	for (iter = this->_numbers.begin(); iter != this->_numbers.end(); ++iter)
+	std::list<int>::const_iterator	end = this->_numbers.end();
+
+	if (this->_numbers.size() < 2)
+		throw Span::NoSpanFoundException();
+	min = abs(*(this->_numbers.begin()) - *(++this->_numbers.begin()));
+	for (iter = this->_numbers.begin(); iter != end; ++iter)
 	{
 		std::list<int>::const_iterator	iter2 = iter;
 		++iter2;
-		while (iter2 != this->_numbers.end())
+		while (iter2 != end)
 		{
-			distances.push_back(abs(*iter - *iter2));
+			if (min > (unsigned int) abs(*iter - *iter2))
+				min = abs(*iter - *iter2);
 			++iter2;
 		}
 	}
-	return *std::min_element(distances.begin(), distances.end());
+	return min;
 }
 
 unsigned int	Span::longestSpan() const
 {
-	std::list<unsigned int>	distances;
+	unsigned int	max;
 	std::list<int>::const_iterator	iter;
-	for (iter = this->_numbers.begin(); iter != this->_numbers.end(); ++iter)
+	std::list<int>::const_iterator	end = this->_numbers.end();
+
+	if (this->_numbers.size() < 2)
+		throw Span::NoSpanFoundException();
+	for (iter = this->_numbers.begin(); iter != end; ++iter)
 	{
 		std::list<int>::const_iterator	iter2 = iter;
 		++iter2;
-		while (iter2 != this->_numbers.end())
+		while (iter2 != end)
 		{
-			distances.push_back(abs(*iter - *iter2));
+			if (max < (unsigned int) abs(*iter - *iter2))
+				max = abs(*iter - *iter2);
 			++iter2;
 		}
 	}
-	return *std::max_element(distances.begin(), distances.end());
+	return max;
 }
 
 std::list<int>::const_iterator	Span::begin() const

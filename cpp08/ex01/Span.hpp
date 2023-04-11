@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 10:57:46 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/24 14:17:01 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/11 16:46:24 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Span
 		~Span();
 
 		void	addNumber(int n);
+		void	addNumbers(std::list<int>::const_iterator begin, std::list<int>::const_iterator end);
 		unsigned int	shortestSpan() const;
 		unsigned int	longestSpan() const;
 		std::list<int>::const_iterator	begin() const;

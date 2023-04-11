@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 09:41:01 by aperin            #+#    #+#             */
-/*   Updated: 2023/01/24 10:54:20 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/11 13:26:41 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
 #include <array>
 #include <list>
+#include <vector>
 
 int main()
 {
@@ -40,6 +41,21 @@ int main()
 	{
 		easyfind(list, 9);
 		easyfind(list, 10);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	
+	std::cout << "\n---Vector---\n";
+	std::vector<int> vector;
+	for (int i = 0; i < 10; i++)
+		vector.push_back(i);
+
+	try
+	{
+		easyfind(vector, 7);
+		easyfind(vector, 11);
 	}
 	catch(const std::exception& e)
 	{

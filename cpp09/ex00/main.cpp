@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 08:33:20 by aperin            #+#    #+#             */
-/*   Updated: 2023/04/12 08:43:01 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/12 16:20:53 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int main(int ac, char **av)
 		return 1;
 	}
 	BitcoinExchange	btc;
+	btc.process_input(av[1]);
 	return 0;
 }

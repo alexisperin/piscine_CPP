@@ -3,16 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aperin <aperin@student.s19.be>             +#+  +:+       +#+         #
+#    By: aperin <aperin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 14:23:31 by aperin            #+#    #+#              #
-#    Updated: 2023/04/11 18:37:10 by aperin           ###   ########.fr        #
+#    Updated: 2023/04/12 15:17:18 by aperin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= btc
 
-SRCS	= main.cpp
+SRCS	= main.cpp\
+			BitcoinExchange.cpp
 
 OBJDIR	= objs
 

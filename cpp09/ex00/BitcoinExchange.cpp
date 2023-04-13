@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 10:14:10 by aperin            #+#    #+#             */
-/*   Updated: 2023/04/13 09:20:02 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/13 13:10:16 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,9 @@ BitcoinExchange::~BitcoinExchange()
 void	BitcoinExchange::process_input(const std::string &filename)
 {
 	std::ifstream	file;
-	std::string		str;
-	std::string		date;
+	std::string		str, date;
 	float			value;
-	std::size_t		pos;
-	std::size_t		lpos;
-	std::size_t		rpos;
+	size_t			pos;
 
 	file.open(filename.c_str(), std::ios::in);
 	if (!file.is_open())
@@ -75,37 +72,63 @@ void	BitcoinExchange::process_input(const std::string &filename)
 			std::cout << "Error: bad input => " << str << std::endl;
 			continue ;
 		}
-		lpos = str.find_first_not_of(WHITESPACES);
-		rpos = str.find_last_not_of(WHITESPACES, pos - 1);
-		if (lpos == pos)
-		{
-			std::cout << "Error: bad input => " << str << std::endl;
+		date = _parse_date(str, pos);
+		if (date.empty())
 			continue ;
-		}
-		date = str.substr(lpos, rpos - lpos + 1);
-		lpos = str.find_first_not_of(WHITESPACES, pos + 1);
-		rpos = str.find_last_not_of(WHITESPACES);
-		if (rpos == pos)
-		{
-			std::cout << "Error: bad input => " << str << std::endl;
+		value = _parse_number(str, pos);
+		if (value < 0)
 			continue ;
-		}
-		value = std::strtof(str.substr(lpos).c_str(), NULL);
-		if (!valid_date(date))
-			std::cout << "Error: invalid date format.\n";
-		else if (!valid_number(str.substr((lpos))))
-			std::cout << "Error: invalid number.\n";
-		else if (value < 0)
-			std::cout << "Error: not a positive number.\n";
-		else if (value > 1000)
-			std::cout << "Error: too large a number.\n";
-		else
-			std::cout << date << ", " << value << std::endl;
+		_find_rate(date, value);
 	}
 	file.close();
 }
 
-bool BitcoinExchange::valid_date(const std::string &date)
+std::string	BitcoinExchange::_parse_date(std::string &str, size_t pos)
+{
+	size_t	lpos, rpos;
+	std::string	date;
+
+	lpos = str.find_first_not_of(WHITESPACES);
+	rpos = str.find_last_not_of(WHITESPACES, pos - 1);
+	if (lpos == pos)
+	{
+		std::cout << "Error: bad input => " << str << std::endl;
+		return std::string();
+	}
+	date = str.substr(lpos, rpos - lpos + 1);
+	if (!_valid_date(date))
+	{
+		std::cout << "Error: invalid date format.\n";
+		return std::string();
+	}
+	return date;
+}
+
+float	BitcoinExchange::_parse_number(std::string &str, size_t pos)
+{
+	size_t	lpos, rpos;
+	float	value;
+
+	lpos = str.find_first_not_of(WHITESPACES, pos + 1);
+	rpos = str.find_last_not_of(WHITESPACES);
+	if (rpos == pos)
+	{
+		std::cout << "Error: bad input => " << str << std::endl;
+		return -1;
+	}
+	value = std::strtof(str.substr(lpos).c_str(), NULL);
+	if (!_valid_number(str.substr(lpos, rpos - lpos + 1)))
+		std::cout << "Error: invalid number.\n";
+	else if (value < 0)
+		std::cout << "Error: not a positive number.\n";
+	else if (value > 1000)
+		std::cout << "Error: too large a number.\n";
+	else
+		return value;
+	return -1;
+}
+
+bool BitcoinExchange::_valid_date(const std::string &date)
 {
 	if (date.length() != 10)
 		return false;
@@ -120,12 +143,37 @@ bool BitcoinExchange::valid_date(const std::string &date)
 	return true;
 }
 
-bool BitcoinExchange::valid_number(const std::string &number)
+bool BitcoinExchange::_valid_number(const std::string &number)
 {
-	for (unsigned long i = 0; i < number.length(); i++)
-		if (!isdigit(number[i]))
+	int	count = 0;
+	unsigned long	i = 0;
+
+	if (number[i] == '-')
+		i++;
+	while (i < number.length())
+	{
+		if (!isdigit(number[i]) && number[i] != '.')
 			return false;
+		if (number[i] == '.')
+			count++;
+		i++;
+	}
+	if (count > 1)
+		return false;
 	return true;
+}
+
+void	BitcoinExchange::_find_rate(std::string &date, float value)
+{
+	std::map<std::string, float>::iterator	it = this->_map.lower_bound(date);
+	if (it == this->_map.begin())
+	{
+		std::cout << date << " => no data available.\n";
+		return ;
+	}
+	it--;
+	std::cout << date << " => " << value << " = " << value * it->second;
+	std::cout << std::endl;
 }
 
 void	BitcoinExchange::print_map()

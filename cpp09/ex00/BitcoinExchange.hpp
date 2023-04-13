@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 08:40:30 by aperin            #+#    #+#             */
-/*   Updated: 2023/04/12 16:12:33 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/13 09:05:12 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class BitcoinExchange
 		BitcoinExchange();
 		~BitcoinExchange();
 		void	process_input(const std::string &filename);
+		static bool	valid_date(const std::string &date);
+		static bool	valid_number(const std::string &number);
 		void	print_map();
 };
 

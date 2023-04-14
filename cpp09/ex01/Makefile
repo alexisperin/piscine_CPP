@@ -6,13 +6,14 @@
 #    By: aperin <aperin@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 14:23:31 by aperin            #+#    #+#              #
-#    Updated: 2023/04/11 18:38:49 by aperin           ###   ########.fr        #
+#    Updated: 2023/04/14 17:39:45 by aperin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= RPN
 
-SRCS	= main.cpp
+SRCS	= main.cpp\
+			RPN.cpp
 
 OBJDIR	= objs
 

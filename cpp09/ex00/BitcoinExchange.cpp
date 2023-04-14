@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 10:14:10 by aperin            #+#    #+#             */
-/*   Updated: 2023/04/13 13:10:16 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/14 14:35:44 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,12 +174,4 @@ void	BitcoinExchange::_find_rate(std::string &date, float value)
 	it--;
 	std::cout << date << " => " << value << " = " << value * it->second;
 	std::cout << std::endl;
-}
-
-void	BitcoinExchange::print_map()
-{
-	std::map<std::string, float>::iterator	it = this->_map.begin();
-	std::map<std::string, float>::iterator	ite = this->_map.end();
-	for (; it != ite; it++)
-		std::cout << it->first << ", " << it->second << std::endl;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 10:14:10 by aperin            #+#    #+#             */
-/*   Updated: 2023/04/14 14:35:44 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/17 10:17:03 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ float	BitcoinExchange::_parse_number(std::string &str, size_t pos)
 		return -1;
 	}
 	value = std::strtof(str.substr(lpos).c_str(), NULL);
-	if (!_valid_number(str.substr(lpos, rpos - lpos + 1)))
+	if (errno == ERANGE || !_valid_number(str.substr(lpos, rpos - lpos + 1)))
 		std::cout << "Error: invalid number.\n";
 	else if (value < 0)
 		std::cout << "Error: not a positive number.\n";

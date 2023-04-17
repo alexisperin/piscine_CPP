@@ -3,16 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aperin <aperin@student.s19.be>             +#+  +:+       +#+         #
+#    By: aperin <aperin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 14:23:31 by aperin            #+#    #+#              #
-#    Updated: 2023/04/11 18:39:06 by aperin           ###   ########.fr        #
+#    Updated: 2023/04/17 11:59:23 by aperin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= PmergeMe
 
-SRCS	= main.cpp
+SRCS	= main.cpp\
+			PmergeMe.cpp\
+			PmergeMeDeque.cpp
 
 OBJDIR	= objs
 

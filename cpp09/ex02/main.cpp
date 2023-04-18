@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 10:14:15 by aperin            #+#    #+#             */
-/*   Updated: 2023/04/17 13:15:39 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/18 08:30:36 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,9 @@ static bool get_numbers(std::vector<int> &vector, std::deque<int> &deque,
 			}
 		}
 		std::istringstream	iss(av[i]);
-		std::istringstream	iss2(av[i]);
 		int		n;
-		long	l;
 		iss >> n;
-		iss2 >> l;
-		if (n != l || n < 0)
+		if (iss.fail() || n < 0)
 		{
 			std::cout << "Error: " << av[i] << ": invalid number\n";
 			return false;

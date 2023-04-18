@@ -71,8 +71,8 @@ static void	merge_insert_sort_d(std::deque<int> &deque, int i1, int i2)
 	{
 		merge_insert_sort_d(deque, i1, mid);
 		merge_insert_sort_d(deque, mid + 1, i2);
+		merge_d(deque, i1, mid, i2);
 	}
-	merge_d(deque, i1, mid, i2);
 }
 
 void	merge_insert_sort_deque(std::deque<int> &deque)

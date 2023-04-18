@@ -6,7 +6,7 @@
 /*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 09:54:11 by aperin            #+#    #+#             */
-/*   Updated: 2023/04/17 12:02:20 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/18 09:39:58 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ static void	merge_insert_sort_v(std::vector<int> &vector, int i1, int i2)
 	{
 		merge_insert_sort_v(vector, i1, mid);
 		merge_insert_sort_v(vector, mid + 1, i2);
+		merge_v(vector, i1, mid, i2);
 	}
-	merge_v(vector, i1, mid, i2);
 }
 
 void	merge_insert_sort_vector(std::vector<int> &vector)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 15:44:45 by aperin            #+#    #+#             */
-/*   Updated: 2023/04/14 20:59:31 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/18 09:50:59 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	RPN::execute()
 	char	c;
 	std::stack<int>	stack;
 
-	for (unsigned int i = 0; i < this->_str.length(); i++)
+	for (unsigned int i = 0; i < this->_str.length(); i += 2)
 	{
 		c = this->_str[i];
 		if (isdigit(c))
@@ -71,7 +71,6 @@ void	RPN::execute()
 			std::cout << "Error: bad input format\n";
 			return ;
 		}
-		i++;
 	}
 	if (stack.size() != 1)
 		std::cout << "Error: bad input format\n";

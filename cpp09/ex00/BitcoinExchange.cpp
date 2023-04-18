@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperin <aperin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aperin <aperin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 10:14:10 by aperin            #+#    #+#             */
-/*   Updated: 2023/04/17 10:17:03 by aperin           ###   ########.fr       */
+/*   Updated: 2023/04/18 14:40:13 by aperin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ bool BitcoinExchange::_valid_number(const std::string &number)
 
 void	BitcoinExchange::_find_rate(std::string &date, float value)
 {
-	std::map<std::string, float>::iterator	it = this->_map.lower_bound(date);
+	std::map<std::string, float>::iterator	it = this->_map.upper_bound(date);
 	if (it == this->_map.begin())
 	{
 		std::cout << date << " => no data available.\n";
